@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>Fuzzy</title>
+    <link rel="stylesheet" href="/static/simple.css">
+</head>
+
+<body>
+    <div class="hc">Fuzzy: Fuzz framework for fuzzing circom and rust outputs for Spartan ECDSA</div>
+    <table width="100%">
+        <tr>
+            <td>
+                <a href="/" />Back to dashboard</a><br>
+                <div class="container">
+                    {% for message in get_flashed_messages() %}
+                    <div class="alert alert-danger">{{ message }}</div>
+                    {% endfor %}
+                    {% block content %} {% endblock %}
+                </div>
+                <form method="post">
+                    <table width="100%">
+                        <tr>
+                            <th>SQL Script</th>
+                        </tr>
+                        <tr>
+                            <td><textarea rows="40" cols="150" name="sql" id="sql"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><button type="submit">Update test</button></td>
+                        </tr>
+                    </table>
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

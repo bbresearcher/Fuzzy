@@ -1,0 +1,112 @@
+<html>
+
+<head>
+        <link rel="stylesheet" href="/static/simple.css">
+        <title>Fuzzy</title>
+        <script language="javascript">
+                function viewRun() {
+
+                        if (document.all.runs.value != null && document.all.runs.value != "") {
+                                document.location.href = "/" + document.all.runs.value + "/viewruns";
+                        } else { alert("No Test Run selected"); }
+                }
+
+                function editTestData() {
+
+                        if (document.all.tests.value != null && document.all.tests.value != "") {
+                                document.location.href = "/" + document.all.tests.value + "/edittestdata";
+                        } else { alert("No test selected"); }
+                }
+
+                function deleteTest() {
+                        if (document.all.tests.value != null && document.all.tests.value != "") {
+                                if (confirm("You are deleting test : " + document.all.tests.options[document.all.tests.selectedIndex].text + ". Are you sure? ") == true) {
+                                        var xhttp = new XMLHttpRequest();
+                                        console.log("about to post");
+                                        xhttp.open("POST", "/" + document.all.tests.value + "/deletetest", true);
+                                        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                                        xhttp.send();
+                                        console.log(xhttp.responseText);
+                                        document.location.reload();
+                                }
+                        } else { alert("No test selected"); }
+                }
+                function runTest() {
+                        if (document.all.tests.value != null && document.all.tests.value != "") {
+                                if (confirm("You are about to run the test : " + document.all.tests.options[document.all.tests.selectedIndex].text + ". Are you sure? ") == true) {
+                                        var xhttp = new XMLHttpRequest();
+                                        xhttp.open("POST", "/" + document.all.tests.value + "/runtest", true);
+                                        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                                        xhttp.send();
+                                }
+                        } else { alert("No test selected"); }
+                }
+        </script>
+</head>
+
+<body>
+        <div class="hc">Fuzzy: Fuzz framework for fuzzing circom and rust outputs for Spartan ECDSA</div>
+        <table width="95%">
+                <tr>
+                        <td>
+                                <table>
+                                        <tr>
+                                                <th>Tests</th>
+                                        <tr>
+                                        <tr>
+                                                <td>
+                                                        <a href="/" />Back to dashboard</a><br>
+                                                        <h6>Select Results to view</h6>
+                                                        <select name="runs" id="runs" size="10">
+                                                                {% for run in runs %}
+                                                                <option value="{{ run['id'] }}">{{ run['created'] }}
+                                                                </option>
+                                                                {% endfor%}
+                                                        </select><br>
+                                                        <button type="button" onclick="viewRun()">View Test
+                                                                Results</button><br>
+                                                </td>
+                                        </tr>
+                                </table>
+                        </td>
+                        <td>
+                                <table border="1" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                                <th colspan="5">Test results : {{ descr }} : {{ createdDate }}</th>
+                                        </tr>
+                                        <tr>
+                                                <th class="disp">Circom Output</th>
+                                                <th class="disp">Circom/expected Match</th>
+                                                <th class="disp">Rust Output</th>
+                                                <th class="disp">Rust/Expected Match</th>
+                                                <th class="disp">Rust/circom Match</th>
+                                        </tr>
+                                        {% for outcome in testOutcomes %}
+                                        <tr>
+                                                <td><span class="disp">{{ outcome['circomoutput']}}</span></td>
+                                                {% if outcome['circommatch'] == 1 %}
+                                                <td class="m"><span>True</span></td>
+                                                {%else%}
+                                                <td class="n"><span>False</span></td>
+                                                {%endif%}
+                                                <td><span class="disp">{{ outcome['rustoutput']}}</span></td>
+                                                {% if outcome['rustmatch'] == 1 %}
+                                                <td class="m"><span>True</span></td>
+                                                {%else%}
+                                                <td class="n"><span>False</span></td>
+                                                {%endif%}
+                                                {% if outcome['wereEqual'] == 1 %}
+                                                <td class="m"><span>True</span></td>
+                                                {%else%}
+                                                <td class="n"><span>False</span></td>
+                                                {%endif%}
+                                        </tr>
+                                        {% endfor%}
+
+                                </table>
+                        </td>
+                </tr>
+        </table>
+</body>
+
+</html>

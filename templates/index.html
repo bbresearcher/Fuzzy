@@ -1,0 +1,91 @@
+<html>
+
+<head>
+        <link rel="stylesheet" href="/static/simple.css">
+        <title>Fuzzy</title>
+        <script language="javascript">
+                function viewRun() {
+                        document.location.href = "/0/viewruns";
+                }
+                function editTest() {
+
+                        if (document.all.tests.value != null && document.all.tests.value != "") {
+                                document.location.href = "/" + document.all.tests.value + "/edittest";
+                        } else { alert("No test selected"); }
+                }
+
+                function runSql() {
+                        document.location.href = "/runsql";
+                }
+                function addTest() {
+                        document.location.href = "/addtest";
+                }
+
+                function editTestData() {
+
+                        if (document.all.tests.value != null && document.all.tests.value != "") {
+                                document.location.href = "/" + document.all.tests.value + "/edittestdata";
+                        } else { alert("No test selected"); }
+                }
+
+                function deleteTest() {
+                        if (document.all.tests.value != null && document.all.tests.value != "") {
+                                if (confirm("You are deleting test : " + document.all.tests.options[document.all.tests.selectedIndex].text + ". Are you sure? ") == true) {
+                                        var xhttp = new XMLHttpRequest();
+                                        console.log("about to post");
+                                        xhttp.open("POST", "/" + document.all.tests.value + "/deletetest", true);
+                                        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                                        xhttp.send();
+                                        console.log(xhttp.responseText);
+                                        document.location.reload();
+                                }
+                        } else { alert("No test selected"); }
+                }
+                function runTest() {
+                        if (document.all.tests.value != null && document.all.tests.value != "") {
+                                if (confirm("You are about to run the test : " + document.all.tests.options[document.all.tests.selectedIndex].text + ". Are you sure? ") == true) {
+                                        document.location.href = "/" + document.all.tests.value + "/runtest";
+                                }
+                        } else { alert("No test selected"); }
+                }
+        </script>
+</head>
+
+<body>
+        <div class="hc">Fuzzy: Fuzz framework for fuzzing circom and rust outputs for Spartan ECDSA</div>
+        <table width="95%">
+                <tr>
+                        <td>
+                                <table>
+                                        <tr>
+                                                <td colspan="2" align="center">
+                                                        <h6>Select test to run</h6>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                                <td align="right">
+                                                        <select name="tests" id="tests" size="10">
+                                                                {% for test in tests %}
+                                                                <option value="{{ test['id'] }}">{{ test['testname'] }}
+                                                                </option>
+                                                                {% endfor%}
+                                                        </select><br>
+                                                </td>
+                                                <td>
+                                                        <button type="button" onclick="runTest()">Run selected test</button><br>
+                                                        <button type="button" onclick="viewRun()">View Test Results</button><br>
+                                                        <button type="button" onclick="editTest()">Edit selected test</button><br>
+                                                        <button type="button" onclick="editTestData()">Edit fuzz data for Selected test</button><br>
+                                                        <button type="button" onclick="deleteTest()">Delete selected test</button><br>
+                                                        <button type="button" onclick="runSql()">Run SQL Script</button><br>
+                                                        <button type="button" onclick="addTest()">Add new test</button><br>
+                                                </td>
+                                        </tr>
+                                </table>
+                        </td>
+                </tr>
+
+        </table>
+</body>
+
+</html>

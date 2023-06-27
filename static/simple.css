@@ -1,0 +1,88 @@
+button {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
+    background-color: lightgreen; /* Green */
+    color: #4CAF50;
+    width:150px;
+  }
+  
+  button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: #4CAF50; /* Green */
+    color: white;
+    width:150px;
+  }
+
+  h1 {
+    color: #4CAF50;
+  }
+  h2 {
+    color: #4CAF50;
+  }
+  h3 {
+    color: #4CAF50;
+  }
+  h4 {
+    color: #4CAF50;
+  }
+  .m{
+    color: darkgreen;
+    font-size: xx-small;
+    background-color: greenyellow;
+    width: 100%
+  }
+  .disp{
+    font-size: xx-small;
+  }
+  .n{
+    color: darkred;
+    font-size: xx-small;
+    background-color: lightcoral;
+    width: 100%
+  }
+  body {
+    background-color: lightblue;
+  }
+  select {
+    background-color: lightgreen;
+    color: #4CAF50;
+    width:150px;
+  }
+  input[type=text] {
+    background-color: #3CBC8D;
+    color: white;
+    display: block;
+    width: 100%
+  }
+  input[type=text]:focus {
+    background-color: lightblue;
+    color: black;
+    display: block;
+    width: 100%
+  }
+  textarea {
+    background-color: #3CBC8D;
+    color: white;
+  }
+  textarea:focus {
+    background-color: lightblue;
+    color: black;
+  }
+  a {
+    color:darkgreen
+  }
+  .hc {
+    color:darkgreen;
+    text-align: center;
+    font-size: large;
+  }
+  th {
+    color: #4CAF50;
+  }
+  td{
+    color: #4CAF50;
+    vertical-align: top;
+  }
+  table {
+    width: 100%
+  }

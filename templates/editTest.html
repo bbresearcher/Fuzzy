@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <title>Fuzzy</title>
+    <link rel="stylesheet" href="/static/simple.css">
+</head>
+
+<body>
+    <div class="hc">Fuzzy: Fuzz framework for fuzzing circom and rust outputs for Spartan ECDSA</div>
+    <table>
+        <tr>
+            <th>Edit test</th>
+        <tr>
+        <tr>
+            <td>
+                <a href="/" />Back to dashboard</a><br>
+                <div class="container">
+                    {% for message in get_flashed_messages() %}
+                    <div class="alert alert-danger">{{ message }}</div>
+                    {% endfor %}
+                    {% block content %} {% endblock %}
+                </div>
+                <h6>Enter test details</h6>
+                <form method="post">
+                    <table>
+                        <tr>
+                            <th>Test Name</th>
+                            <th>Nodejs script path</th>
+                            <th>Circom circuit path</th>
+                            <th>Rust path</th>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="tname" id="tname" value="{{ test['testname'] }}" /><input
+                                    type="hidden" id="idd" name="idd" value="{{ test['id']}}"></td>
+                            <td><input type="text" name="npath" id="npath" value="{{ test['nodepath'] }}" /></td>
+                            <td><input type="text" name="cpath" id="cpath" value="{{ test['circompath'] }}" /></td>
+                            <td><input type="text" name="rpath" id="rpath" value="{{ test['rustpath'] }}" /></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><button type="submit">Update test</button></td>
+                        </tr>
+                    </table>
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
