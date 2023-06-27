@@ -1,10 +1,9 @@
 import sqlite3
 import subprocess
 import random
-from flask import Flask, render_template,request,flash
+from flask import Flask, render_template,request
 
 app=Flask(__name__)
-app.config['SECRET_KEY'] = 'aZfe285BnpXvcz'
 
 def get_db_connection():
     conn = sqlite3.connect('database.db')
