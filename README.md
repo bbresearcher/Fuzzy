@@ -55,7 +55,7 @@ Then run `source ./fuzzy/bin/activate`
 
 Install `Flask` with `pip install flask`
 
-Run the flass app with `python3 ./app.py`
+Run the flask app with `python3 ./app.py`
 
 ## DISCLAIMER
 This code is just an example used for my learning and SHOULD NOT BE USED IN A PRODUCTION environment. I do not warrant that it is bug free or fit for purpose.
