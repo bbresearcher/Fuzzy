@@ -44,6 +44,8 @@ To run this `Flask` app it is suggested to install `venv`.
 
 `git clone https://github.com/bbresearcher/Fuzzy && cd ./Fuzzy`
 
+`python3 -m venv fuzzy`
+
 Then run `source ./fuzzy/bin/activate`
 
 Install `Flask` with `pip install flask`
