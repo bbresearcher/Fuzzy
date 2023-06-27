@@ -3,6 +3,7 @@ import subprocess
 from flask import Flask, render_template,request,flash
 
 app=Flask(__name__)
+#This is used for flash messages, but they don't work yet, so can actually be deleted from the code
 app.config['SECRET_KEY'] = 'aZfe285BnpXvcz'
 
 def get_db_connection():
