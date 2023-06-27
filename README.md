@@ -36,7 +36,8 @@ The command line allows for 3 commadline arguments:
 - `number_of_fuzz_runs` to specify how many times to run
 - `add_results_to_db` to specify if the results should be added to the `Flask` app database 0 for `no` and 1 for `yes`
 
-**The example below run test number 1 for 3 runs and does not insert the results into the database**
+**The example below runs test number 1 for 3 runs and does not insert the results into the database**
+
 ![Fuzz run](./images/fuzzyrun.png)
 
 ## Installation:
