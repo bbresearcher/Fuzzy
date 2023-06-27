@@ -40,7 +40,9 @@ The command line allows for 3 commadline arguments:
 ![Fuzz run](./images/fuzzyrun.png)
 
 ## Installation:
-To run this `Flask` app it is suggested to install `venv`.
+**You would first need to clone and setup the Poseidon code you want to fuzz, this includes writing a Rust and a Javascript test file that can run with nodejs**
+
+**These javascript and rust files are not included in this repo**To run this `Flask` app it is suggested to install `venv`.
 
 `git clone https://github.com/bbresearcher/Fuzzy && cd ./Fuzzy`
 
