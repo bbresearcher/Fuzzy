@@ -71,7 +71,7 @@ Now set up the `Poseidon` default test in the `Fuzzy` admin panel to have the fo
 - Circom path : /home/{user_profile}/{path_to_spartan-ecdsa_github}/packages/circuits
 - Rust path   : /home/{user_profile}/{path_to_spartan-ecdsa_github}/packages/poseidon/
 
-`{user_profile}` and `{path_to_spartan-ecdsa_github}` must be the directories on your own computer where the code is store
+`{user_profile}` and `{path_to_spartan-ecdsa_github}` must be the directories on your own computer where the code is stored
 
 Setup as in the image below
 
