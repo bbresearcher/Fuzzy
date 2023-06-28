@@ -31,7 +31,7 @@ This will show the actual outputs and if set can check if the outputs matched th
 ![RUN SQL](./images/runsql.png)
 
 ## Fuzzing commandline
-The command line allows for 3 commadline arguments:
+The command line allows for 3 commandline arguments:
 - `test_id` to run
 - `number_of_fuzz_runs` to specify how many times to run
 - `add_results_to_db` to specify if the results should be added to the `Flask` app database 0 for `no` and 1 for `yes`
