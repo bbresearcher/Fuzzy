@@ -19,7 +19,7 @@ The functionality of the Web admin panel, allows users, to :
 ## Add/Edit
 ![addedit](./images/addedit.png)
 
-## View tests
+## View tests runs by date
 ![View tests](./images/viewtests.png)
 
 ## View Test Results
