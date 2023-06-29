@@ -173,10 +173,11 @@ def runFuzzer(test_id,number_of_fuzz_runs):
             print("[+] Input 2           : ",inputfield2)
             nodeCommand = "node " + nodepath + " '" + inputfield1 + "' '" + inputfield2 + "' " + circompath
             rustCommand = "cd " + rustpath + " && cargo run -q -- '" + inputfield1 + "' '" + inputfield2 + "'"
-            circomResp = subprocess.check_output(nodeCommand,shell=True)
+            
         
             didFail = 0
             try:
+                circomResp = subprocess.check_output(nodeCommand,shell=True)
                 rustResp = subprocess.check_output(rustCommand,shell=True)
                 castCommand = "cast --to-base " + str(rustResp.decode()[1:67]) + " 10"
                 castResp  = subprocess.check_output(castCommand,shell=True)
