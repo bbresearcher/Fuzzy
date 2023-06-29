@@ -43,10 +43,12 @@ The command line allows for 3 commandline arguments:
 ## Fuzzing to match a predefined output value
 Running the `fuzzymatch.py` script from the commandline allows you to try and fuee it can generate random values to try and match the predefined value of : 46702443887670435486723478191273607819169644657419964658749776213559127696053.
 
-It work similar to the script above except it does not have an option to add the reults to the database.
+The script works similar to the script above except it does not have an option to add the reults to the database.
+
 ![Fuzzymatch help](./images/fuzzymatchhelp.png)
 
-It will generate output as below:
+Running the script will generate output as below:
+
 ![Fuzzymatch output](./images/fuzzymatchrun.png)
 
 ## Installation:
