@@ -150,14 +150,13 @@ def generateInputField():
         genfield += str(round(random.uniform(0,9)))
     return genfield
 
-def runFuzzer(test_id,number_of_fuzz_runs,add_results_to_db):
+def runFuzzer(test_id,number_of_fuzz_runs):
     print("-----------------------------------------------------------------------")
     print("Trying to create output to match: 46702443887670435486723478191273607819169644657419964658749776213559127696053")
     print("-----------------------------------------------------------------------")
     print("")
     strTomatch = "46702443887670435486723478191273607819169644657419964658749776213559127696053"
     numRuns= int(number_of_fuzz_runs) 
-    addtoDb = int(add_results_to_db) 
     testtorun = getTest(test_id) 
     testname = testtorun['testname']
     nodepath = testtorun['nodepath']
@@ -214,8 +213,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("test_id", help="The test id in the Fuzzy database")
     parser.add_argument("number_of_fuzz_runs", help="The number of fuzz runs to try")
-    parser.add_argument("add_results_to_db", help="Must the results be inserted into the Fuzzy DB 0=No 1=Yes")
     args = parser.parse_args()
-    runFuzzer(args.test_id,args.number_of_fuzz_runs,args.add_results_to_db)
+    runFuzzer(args.test_id,args.number_of_fuzz_runs)
 
 main()
